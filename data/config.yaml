@@ -1,0 +1,8 @@
+hiring:
+  show: true
+  text: "We're growing — [open positions](https://www.mpi.nl/career-education/vacancies?f%5B0%5D=job_offer_function_group%3A59224) for PhD candidates."
+
+join_box:
+  show: true
+  heading: "Join the group"
+  text: "We are looking for curious, motivated researchers to join the group for their PhD. If you're interested in the intersection of language, AI, and the brain — have a look at our [open positions](https://www.mpi.nl/career-education/vacancies?f%5B0%5D=job_offer_function_group%3A59224)"

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LPC &mdash; Language &amp; Predictive Computation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">LPC<span class="pred"> lab</span></div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('about')" class="active" id="nav-about">About</a></li>
+    <li><a onclick="showPage('people')" id="nav-people">People</a></li>
+    <li><a onclick="showPage('research')" id="nav-research">Research</a></li>
+  </ul>
+</nav>
+
+<!-- ABOUT -->
+<div class="page active" id="page-about">
+  <section class="hero">
+    <div class="hero-autocomplete" id="hero-text"><span class="cursor"></span></div>
+    <div class="hero-subtitle" id="hero-subtitle">Max Planck Institute for Psycholinguistics &middot; Nijmegen</div>
+  </section>
+
+  <section class="about-section fade-in">
+    <div class="about-text">
+      <p>How do we understand language? What does the brain actually do when we read or hear a sentence? And how is it that Large Language Models &mdash; trained on nothing but predicting the next word &mdash; have not only mastered language, but also turned out to be the most accurate models of human brain responses to language?</p>
+      <p>In the LPC Group, we use the tools of modern AI to model language in the human mind and brain. We also run the logic in reverse: drawing on what psychology and neuroscience teach us about human language processing, we build language models constrained by the human cognitive architecture.</p>
+      <p>Ultimately, we aim to understand how the human brain learns and represents language, and to build more cognitively faithful models of human language processing.</p>
+    </div>
+    <div class="affiliations">
+      <div class="affiliation"><strong>MPI for Psycholinguistics</strong>Nijmegen, the Netherlands</div>
+      <div class="affiliation"><strong>University of Amsterdam</strong>Amsterdam Brain &amp; Cognition</div>
+    </div>
+  </section>
+
+  <!-- HIRING_BANNER -->
+
+  <section class="news-section">
+    <div class="section-label">News</div>
+    <!-- NEWS_ITEMS -->
+  </section>
+
+  <footer>
+    <div class="footer-left">Language &amp; Predictive Computation<br>Max Planck Institute for Psycholinguistics<br>Wundtlaan 1, 6525 XD Nijmegen</div>
+
+  </footer>
+</div>
+
+<!-- PEOPLE -->
+<div class="page" id="page-people">
+  <section class="people-header">
+    <div class="page-title fade-in">P<span class="pred">eople</span></div>
+  </section>
+  <section class="people-grid">
+    <!-- PEOPLE_CARDS -->
+  </section>
+  <!-- JOIN_BOX -->
+  <footer>
+    <div class="footer-left">Language &amp; Predictive Computation<br>Max Planck Institute for Psycholinguistics<br>Wundtlaan 1, 6525 XD Nijmegen</div>
+
+  </footer>
+</div>
+
+<!-- RESEARCH -->
+<div class="page" id="page-research">
+  <section class="research-header">
+    <div class="page-title fade-in">R<span class="pred">esearch</span></div>
+  </section>
+  <!-- RESEARCH_INTRO -->
+  <section class="research-threads">
+    <div class="section-label">Research directions</div>
+    <!-- RESEARCH_THREADS -->
+  </section>
+  <footer>
+    <div class="footer-left">Language &amp; Predictive Computation<br>Max Planck Institute for Psycholinguistics<br>Wundtlaan 1, 6525 XD Nijmegen</div>
+
+  </footer>
+</div>
+
+<script>
+// Hero typing + autocomplete animation
+var heroAnimTimeout = null;
+
+function runHeroAnimation() {
+  var container = document.getElementById('hero-text');
+  var subtitle = document.getElementById('hero-subtitle');
+
+  if (heroAnimTimeout) clearTimeout(heroAnimTimeout);
+  subtitle.classList.remove('visible');
+  container.innerHTML = '<span class="cursor"></span>';
+
+  var part1 = 'Language & ';
+  var part2 = 'Predic';
+  var part3 = 'tive Computation';
+  var idx = 0;
+
+  function render(typed, showCursor) {
+    container.innerHTML = '<span class="typed">' + typed + '</span>' +
+      (showCursor ? '<span class="cursor"></span>' : '');
+  }
+
+  function typePhase1() {
+    if (idx <= part1.length) {
+      render(part1.substring(0, idx), true);
+      idx++;
+      var delay = 65 + Math.random() * 35;
+      if (part1[idx - 1] === '&') delay += 120;
+      heroAnimTimeout = setTimeout(typePhase1, delay);
+    } else {
+      idx = 0;
+      heroAnimTimeout = setTimeout(typePhase2, 200);
+    }
+  }
+
+  function typePhase2() {
+    if (idx <= part2.length) {
+      render(part1 + part2.substring(0, idx), true);
+      idx++;
+      heroAnimTimeout = setTimeout(typePhase2, 75 + Math.random() * 40);
+    } else {
+      heroAnimTimeout = setTimeout(showPrediction, 750);
+    }
+  }
+
+  function showPrediction() {
+    container.innerHTML =
+      '<span class="typed">' + part1 + part2 + '</span>' +
+      '<span class="predicted" id="hero-prediction">' + part3 + '</span>' +
+      '<span class="cursor"></span>';
+
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        var pred = document.getElementById('hero-prediction');
+        if (pred) pred.classList.add('visible');
+      });
+    });
+
+    setTimeout(function() { subtitle.classList.add('visible'); }, 600);
+    setTimeout(function() {
+      var pred = document.getElementById('hero-prediction');
+      if (pred) pred.classList.add('accepted');
+    }, 2400);
+  }
+
+  heroAnimTimeout = setTimeout(typePhase1, 700);
+}
+
+// Page navigation
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.nav-links a').forEach(function(a) { a.classList.remove('active'); });
+  document.getElementById('page-' + page).classList.add('active');
+  document.getElementById('nav-' + page).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  var els = document.querySelectorAll('#page-' + page + ' .fade-in');
+  els.forEach(function(el) { el.style.animation = 'none'; el.offsetHeight; el.style.animation = ''; });
+  if (page === 'about') runHeroAnimation();
+}
+
+runHeroAnimation();
+</script>
+</body>
+</html>

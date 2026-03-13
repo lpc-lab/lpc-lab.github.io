@@ -1,0 +1,3 @@
+<!-- Our research is unified by a single idea: that prediction is a core  principle of both biological and artificial intelligence. We study this principle primarily in language, and increasingly in perception and reasoning. -->
+Our group works at the intersection of cognitive science and AI, trying to understand how brains and minds process language and make sense of the world. A recurring idea is that prediction is a core  principle of both biological and artificial intelligence. Language is our primary focus, but we also venture into other domains - how we see,  reason, and remember. More on specific research directions below.
+
