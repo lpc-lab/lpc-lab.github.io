@@ -151,29 +151,27 @@ def build_people_cards():
     # Sort by order field, default 999
     people.sort(key=lambda p: p.get("order", 999))
 
-    html = ""
-    for person in people:
+    # Split into core members and affiliated members
+    core = [p for p in people if p.get("category", "") != "affiliated"]
+    affiliated = [p for p in people if p.get("category", "") == "affiliated"]
+
+    def render_card(person):
         name = person.get("name", "")
         role = person.get("role", "")
         photo = person.get("photo", "")
         bio_md = person.get("_body", "")
         links = person.get("links", {})
 
-        # Photo or placeholder
         photo_path = os.path.join(photos_dir, photo) if photo else ""
         if photo and os.path.exists(photo_path):
             photo_html = f'<img class="person-photo" src="photos/{html_escape(photo)}" alt="{html_escape(name)}">'
         else:
             photo_html = '<div class="person-photo-placeholder"></div>'
 
-        # Bio — strip outer <p> tags if single paragraph for cleaner nesting
-        bio_html = md_to_html(bio_md)
-        bio_html = bio_html.strip()
-        # Unwrap single <p> so the .person-bio div controls spacing
+        bio_html = md_to_html(bio_md).strip()
         if bio_html.startswith("<p>") and bio_html.endswith("</p>") and bio_html.count("<p>") == 1:
             bio_html = bio_html[3:-4]
 
-        # Links
         links_html = ""
         if links:
             links_html = '<div class="person-links">'
@@ -181,7 +179,7 @@ def build_people_cards():
                 links_html += f'<a href="{html_escape(url)}">{html_escape(label)}</a>'
             links_html += "</div>"
 
-        html += f"""    <div class="person-card fade-in">
+        return f"""    <div class="person-card fade-in">
       {photo_html}
       <div class="person-info">
         <h3>{html_escape(name)}</h3>
@@ -190,6 +188,16 @@ def build_people_cards():
         {links_html}
       </div>
     </div>\n"""
+
+    html = ""
+    if affiliated:
+        html += '    <div class="section-label">Members</div>\n'
+    for person in core:
+        html += render_card(person)
+    if affiliated:
+        html += '    <div class="section-label people-section-label--affiliated">Affiliated members</div>\n'
+        for person in affiliated:
+            html += render_card(person)
 
     return html
 

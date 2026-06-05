@@ -116,6 +116,7 @@ nav {
 .person-links { margin-top: 1rem; display: flex; gap: 1.2rem; }
 .person-links a { font-family: var(--mono); font-size: 0.7rem; color: var(--text-ghost); text-decoration: none; letter-spacing: 0.04em; transition: color 0.3s; }
 .person-links a:hover { color: var(--text); }
+.people-section-label--affiliated { margin-top: 3.5rem; }
 .join-section { padding: 0 3rem 6rem; max-width: 900px; }
 .join-box { padding: 2.5rem; border: 1px dashed rgba(255,255,255,0.1); border-radius: 3px; }
 .join-box h3 { font-family: var(--mono); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.06em; margin-bottom: 0.8rem; }
