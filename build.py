@@ -115,15 +115,16 @@ def build_news_items():
         tag = item.get("tag", "")
         text = item.get("text", "")
 
-        tag_html = ""
-        if tag:
-            tag_html = f'<span class="news-tag">{html_escape(tag)}</span>'
+        # Tag is its own grid column; always emit the cell (even empty)
+        # so item text stays aligned across tagged and untagged rows.
+        tag_html = f'<div class="news-tag">{html_escape(tag)}</div>'
 
         text_html = inline_md(text)
 
         html += f"""    <div class="news-item fade-in">
       <div class="news-date">{html_escape(date)}</div>
-      <div class="news-content">{tag_html}{text_html}</div>
+      {tag_html}
+      <div class="news-content">{text_html}</div>
     </div>\n"""
 
     return html
@@ -228,7 +229,6 @@ def build_research_threads():
 
         number = fm.get("number", "")
         title = fm.get("title", "")
-        methods = fm.get("methods", [])
 
         # Body as plain paragraph text
         body_html = md_to_html(body).strip()
@@ -276,6 +276,11 @@ def build():
     dst_css = os.path.join(DOCS_DIR, "style.css")
     shutil.copy2(src_css, dst_css)
     print(f"  copied style.css -> docs/style.css")
+
+    # Copy favicon
+    src_fav = os.path.join(BASE_DIR, "favicon.svg")
+    shutil.copy2(src_fav, os.path.join(DOCS_DIR, "favicon.svg"))
+    print(f"  copied favicon.svg -> docs/favicon.svg")
 
     # Copy photos if they exist
     src_photos = os.path.join(DATA_DIR, "people", "photos")

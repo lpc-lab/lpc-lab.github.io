@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LPC &mdash; Language &amp; Predictive Computation</title>
+<meta name="description" content="The Language &amp; Predictive Computation (LPC) group at the Max Planck Institute for Psycholinguistics uses modern AI to study how the human mind and brain process language, and builds language models constrained by human cognition.">
+<meta property="og:title" content="LPC &mdash; Language &amp; Predictive Computation">
+<meta property="og:description" content="We use the tools of modern AI to model language in the human mind and brain.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lpc-lab.github.io/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -14,9 +20,9 @@
 <nav>
   <div class="nav-logo">LPC<span class="pred"> group</span></div>
   <ul class="nav-links">
-    <li><a onclick="showPage('about')" class="active" id="nav-about">About</a></li>
-    <li><a onclick="showPage('people')" id="nav-people">People</a></li>
-    <li><a onclick="showPage('research')" id="nav-research">Research</a></li>
+    <li><a href="#about" class="active" id="nav-about">About</a></li>
+    <li><a href="#people" id="nav-people">People</a></li>
+    <li><a href="#research" id="nav-research">Research</a></li>
   </ul>
 </nav>
 
@@ -163,7 +169,14 @@ function showPage(page) {
   if (page === 'about') runHeroAnimation();
 }
 
-runHeroAnimation();
+// Hash routing: pages are directly linkable (#about, #people, #research)
+function handleHash() {
+  var page = (location.hash || '#about').replace('#', '');
+  if (!document.getElementById('page-' + page)) page = 'about';
+  showPage(page);
+}
+window.addEventListener('hashchange', handleHash);
+handleHash();
 </script>
 </body>
 </html>

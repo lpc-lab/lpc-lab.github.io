@@ -38,7 +38,7 @@ Hosted on GitHub Pages at lpc-lab.github.io.
 ## Design guardrails
 - Never use generic fonts (Inter, Roboto, Arial)
 - Never use default blue/purple gradients
-- Keep accent color usage restrained — links, tags, the hiring dot
+- Keep accent color usage restrained — links and the hiring dot
 - Typography: tight tracking on large mono headings, generous line-height on body
 - Interactive states on all clickable elements (hover, focus)
 - Animations: only transform and opacity, subtle easing
