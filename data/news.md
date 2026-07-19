@@ -2,11 +2,11 @@
 items:
   - date: "Jul 2026"
     tag: preprint
-    text: 'New preprint: [Distinct regimes of spatial prediction across the visual field during natural vision](https://www.biorxiv.org/content/10.64898/2026.03.27.714859v2)'
+    text: 'New preprint on [distinct regimes of spatial prediction](https://www.biorxiv.org/content/10.64898/2026.03.27.714859v2) across the visual field'
 
   - date: "Jul 2026"
     tag: paper
-    text: 'New paper in [Journal of Memory and Language](https://doi.org/10.1016/j.jml.2026.104784) on representational magnitude and memorability'
+    text: 'New paper in [JML](https://doi.org/10.1016/j.jml.2026.104784) on representational magnitude and memorability'
 
   - date: "Jun 2026"
     tag: paper
