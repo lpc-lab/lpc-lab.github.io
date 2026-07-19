@@ -113,18 +113,12 @@ def build_news_items():
     html = ""
     for item in items:
         date = item.get("date", "")
-        tag = item.get("tag", "")
         text = item.get("text", "")
-
-        # Tag is its own grid column; always emit the cell (even empty)
-        # so item text stays aligned across tagged and untagged rows.
-        tag_html = f'<div class="news-tag">{html_escape(tag)}</div>'
 
         text_html = inline_md(text)
 
         html += f"""    <div class="news-item fade-in">
       <div class="news-date">{html_escape(date)}</div>
-      {tag_html}
       <div class="news-content">{text_html}</div>
     </div>\n"""
 

@@ -77,11 +77,10 @@ nav {
 /* NEWS */
 .news-section { padding: 0 3rem 6rem; max-width: 900px; }
 .section-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-ghost); margin-bottom: 2rem; }
-.news-item { display: grid; grid-template-columns: 90px 85px 1fr; gap: 1.25rem; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,0.04); }
+.news-item { display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,0.04); }
 .news-date { font-family: var(--mono); font-size: 0.75rem; color: var(--text-ghost); padding-top: 0.15rem; }
 .news-content { font-size: 0.95rem; color: var(--text-dim); line-height: 1.6; }
 .news-content a { color: var(--accent); text-decoration: none; }
-.news-tag { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; color: var(--text-ghost); padding-top: 0.15rem; }
 
 /* HIRING BANNER */
 .hiring-banner {
@@ -152,8 +151,7 @@ footer .footer-right a:hover { color: var(--text); }
   nav { padding: 1rem 1.5rem; }
   .hero,.about-section,.news-section,.people-header,.people-grid,.research-header,.research-intro,.research-threads,footer,.join-section,.hiring-banner { padding-left:1.5rem; padding-right:1.5rem; margin-left:0; margin-right:0; }
   .hero { padding-top: 5rem; }
-  .news-item { grid-template-columns: auto 1fr; gap: 0.2rem 1rem; }
-  .news-content { grid-column: 1 / -1; }
+  .news-item { grid-template-columns: 1fr; gap: 0.3rem; }
   .person-card { grid-template-columns: 1fr; gap: 1.5rem; }
   .affiliations { flex-direction: column; gap: 1rem; }
   .nav-links { gap: 1.5rem; }
