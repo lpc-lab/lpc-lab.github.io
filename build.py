@@ -12,6 +12,7 @@ Dependencies:
     pip install pyyaml markdown
 """
 
+import hashlib
 import os
 import re
 import shutil
@@ -255,6 +256,13 @@ def build():
     template_path = os.path.join(TEMPLATES_DIR, "index.html")
     with open(template_path, encoding="utf-8") as f:
         html = f.read()
+
+    # Version the stylesheet URL with a content hash: GitHub Pages caches
+    # assets for 10 minutes, so an unversioned style.css can pair fresh
+    # HTML with a stale cached sheet after a deploy.
+    with open(os.path.join(BASE_DIR, "style.css"), "rb") as f:
+        css_ver = hashlib.md5(f.read()).hexdigest()[:8]
+    html = html.replace('href="style.css"', f'href="style.css?v={css_ver}"')
 
     # Inject sections
     config = load_config()
