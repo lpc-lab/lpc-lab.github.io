@@ -1,5 +1,11 @@
 ---
 items:
+  - date: "Aug 2026"
+    text: 'New paper (EMNLP Main) on [entity tracking in humans and language models](https://arxiv.org/abs/2608.18083)'
+
+  - date: "Aug 2026"
+    text: 'Hiring! [Postdoc in Speech Language Modelling](https://www.mpi.nl/career-education/vacancies/vacancy/postdoctoral-position-speech-language-modelling)'
+
   - date: "Jul 2026"
     text: 'New preprint on [distinct regimes of spatial prediction](https://www.biorxiv.org/content/10.64898/2026.03.27.714859v2) across the visual field'
 
