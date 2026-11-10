@@ -2,6 +2,7 @@
 name: Micha Heilbron
 role: Group Leader
 photo: micha_bw.jpg
+photo_credit: Nieke Martens
 links:
   website: https://michaheilbron.github.io
   scholar: https://scholar.google.com/citations?user=PPgOu8sAAAAJ

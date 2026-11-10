@@ -155,6 +155,7 @@ def build_people_cards():
         name = person.get("name", "")
         role = person.get("role", "")
         photo = person.get("photo", "")
+        photo_credit = person.get("photo_credit", "")
         bio_md = person.get("_body", "")
         links = person.get("links", {})
 
@@ -163,6 +164,8 @@ def build_people_cards():
             photo_html = f'<img class="person-photo" src="photos/{html_escape(photo)}" alt="{html_escape(name)}">'
         else:
             photo_html = '<div class="person-photo-placeholder"></div>'
+        if photo_credit:
+            photo_html += f'\n      <div class="person-photo-credit">Photo: {html_escape(photo_credit)}</div>'
 
         bio_html = md_to_html(bio_md).strip()
         if bio_html.startswith("<p>") and bio_html.endswith("</p>") and bio_html.count("<p>") == 1:
@@ -175,8 +178,10 @@ def build_people_cards():
                 links_html += f'<a href="{html_escape(url)}">{html_escape(label)}</a>'
             links_html += "</div>"
 
-        return f"""    <div class="person-card fade-in">
+        return f"""    <div class="person-card fade-in{' has-credit' if photo_credit else ''}">
+      <div class="person-photo-wrap">
       {photo_html}
+      </div>
       <div class="person-info">
         <h3>{html_escape(name)}</h3>
         <div class="person-role">{html_escape(role)}</div>

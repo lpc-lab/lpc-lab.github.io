@@ -109,6 +109,10 @@ nav {
   width: 140px; height: 170px; border-radius: 3px; object-fit: cover; display: block;
   filter: grayscale(20%) brightness(0.85);
 }
+.person-card.has-credit .person-photo-wrap { display: flex; flex-direction: column; }
+.person-card.has-credit .person-info { display: flex; flex-direction: column; }
+.person-card.has-credit .person-links { margin-top: auto; padding-top: 1rem; }
+.person-photo-credit { font-family: var(--mono); font-size: 0.7rem; color: var(--text-ghost); letter-spacing: 0.04em; margin-top: auto; padding-top: 0.6rem; white-space: nowrap; }
 .person-info h3 { font-size: 1.3rem; font-weight: 500; margin-bottom: 0.3rem; }
 .person-role { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.04em; margin-bottom: 1rem; }
 .person-bio { font-size: 0.95rem; color: var(--text-dim); line-height: 1.7; max-width: 500px; }
