@@ -94,11 +94,11 @@ def build_join_box(config):
     if not jb.get("show", False):
         return ""
     heading = jb.get("heading", "")
-    text_html = inline_md(jb.get("text", ""))
+    text_html = md_to_html(jb.get("text", "").strip())
     return f"""  <section class="join-section">
     <div class="join-box fade-in">
       <h3>{heading}</h3>
-      <p>{text_html}</p>
+      {text_html}
     </div>
   </section>\n"""
 

@@ -125,6 +125,11 @@ nav {
 .join-box h3 { font-family: var(--mono); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.06em; margin-bottom: 0.8rem; }
 .join-box p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.7; }
 .join-box a { color: var(--accent); text-decoration: none; }
+.join-box a:hover, .join-box a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.join-box p + p { margin-top: 1rem; }
+.join-box p { max-width: 640px; }
+.join-box strong { color: var(--text); font-weight: 500; }
+.join-box em { font-style: italic; color: var(--text); }
 
 /* RESEARCH */
 .research-header { padding: 6rem 3rem 2rem; max-width: 900px; }
