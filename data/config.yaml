@@ -6,7 +6,9 @@ join_box:
   show: true
   heading: "Join the group"
   text: |
-    **A note on enquiries.** I (Micha) receive a lot (and I mean *a lot*) of emails about internships, PhD and postdoc positions, more than I can read and reply to. **Please read the following before emailing me:**
+    **A note on enquiries**
+
+    I (Micha) receive a lot (and I mean *a lot*) of emails about internships, PhD and postdoc positions, more than I can read and reply to. **Please read the following before emailing me:**
 
     **PhD & postdoc:** Paid PhD and postdoc positions are **not available unless explicitly advertised**, here or on the [MPI vacancies page](https://www.mpi.nl/career-education/vacancies?f%5B0%5D=job_offer_function_group%3A59224). I can no longer reply to general PhD or postdoc enquiries. Please only get in touch if you have a **concrete source of funding** in mind or to apply to.
 
@@ -14,4 +16,4 @@ join_box:
 
     **BSc:** We do **not host bachelor students** in the group.
 
-    If, after reading all this, you think you’d be a great addition to the group, I’d love to hear from you: email me (Micha). The number of requests is sometimes overwhelming, so please bear with me if I’m slow to reply.
+    If, after reading all this, you think you’d be a great addition to the group, I’d love to hear from you! So please do email me (Micha). The number of requests is sometimes overwhelming, so please bear with me if I’m slow to reply.
