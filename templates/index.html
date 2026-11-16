@@ -38,6 +38,7 @@
       <p>How do we understand language? What does the brain actually do when we read or hear a sentence? And how is it that Large Language Models &mdash; trained on nothing but predicting the next word &mdash; have not only mastered language, but also turned out to be the most accurate models of human brain responses to language?</p>
       <p>In the LPC Group, we use the tools of modern AI to model language in the human mind and brain. We also run the logic in reverse: drawing on what psychology and neuroscience teach us about human language processing, we build language models constrained by the human cognitive architecture.</p>
       <p>Ultimately, we aim to understand how the human brain learns and represents language, and to build more cognitively faithful models of human language processing.</p>
+      <p>Interested in joining the group? <a href="#join">Read this first</a>.</p>
     </div>
     <div class="affiliations">
       <div class="affiliation"><strong>MPI for Psycholinguistics</strong>Nijmegen, the Netherlands</div>
@@ -158,22 +159,33 @@ function runHeroAnimation() {
 }
 
 // Page navigation
-function showPage(page) {
+function showPage(page, target) {
   document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
   document.querySelectorAll('.nav-links a').forEach(function(a) { a.classList.remove('active'); });
   document.getElementById('page-' + page).classList.add('active');
   document.getElementById('nav-' + page).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (target) {
+    requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth' }); });
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   var els = document.querySelectorAll('#page-' + page + ' .fade-in');
   els.forEach(function(el) { el.style.animation = 'none'; el.offsetHeight; el.style.animation = ''; });
   if (page === 'about') runHeroAnimation();
 }
 
-// Hash routing: pages are directly linkable (#about, #people, #research)
+// Hash routing: pages are directly linkable (#about, #people, #research),
+// and so are sections inside a page (e.g. #join opens People and scrolls there)
 function handleHash() {
-  var page = (location.hash || '#about').replace('#', '');
-  if (!document.getElementById('page-' + page)) page = 'about';
-  showPage(page);
+  var id = (location.hash || '#about').replace('#', '');
+  var page = id, target = null;
+  if (!document.getElementById('page-' + id)) {
+    target = document.getElementById(id);
+    var host = target && target.closest('.page');
+    page = host ? host.id.replace('page-', '') : 'about';
+    if (!host) target = null;
+  }
+  showPage(page, target);
 }
 window.addEventListener('hashchange', handleHash);
 handleHash();
