@@ -1,6 +1,6 @@
 ---
 name: Micha Heilbron
-role: Group Leader
+role: Principal Investigator
 photo: micha_bw.jpg
 photo_credit: Nieke Martens
 links:
