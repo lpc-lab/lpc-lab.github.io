@@ -19,7 +19,7 @@ items:
     text: 'New paper in [TACL](https://doi.org/10.1162/tacl.a.688) on incorporating human-like fleeting memory in language models'
 
   - date: "Mar 2026"
-    text: 'Hiring! Two PhD positions'
+    text: 'Hiring! Two PhD positions, on [NeuroAI](https://www.mpi.nl/career-education/vacancies/vacancy/fully-funded-4-year-phd-position-neuroai-language) and [language modelling](https://www.mpi.nl/career-education/vacancies/vacancy/fully-funded-4-year-phd-position-developmental-language)'
 
   - date: "Mar 2026"
     text: "LPC group officially launched at the Max Planck Institute for Psycholinguistics"
