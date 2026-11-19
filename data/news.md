@@ -1,5 +1,8 @@
 ---
 items:
+  - date: "Nov 2026"
+    text: 'Hiring! [PhD in Developmental Language Modelling](https://www.mpi.nl/career-education/vacancies/vacancy/fully-funded-4-year-phd-position-developmental-language)'
+
   - date: "Aug 2026"
     text: 'New paper (EMNLP Main) on [entity tracking in humans and language models](https://arxiv.org/abs/2608.18083)'
 
@@ -16,7 +19,7 @@ items:
     text: 'New paper in [TACL](https://doi.org/10.1162/tacl.a.688) on incorporating human-like fleeting memory in language models'
 
   - date: "Mar 2026"
-    text: 'Two PhD positions: [Developmental language modelling](https://www.mpi.nl/career-education/vacancies/vacancy/fully-funded-4-year-phd-position-developmental-language) and [NeuroAI of language](https://www.mpi.nl/career-education/vacancies/vacancy/fully-funded-4-year-phd-position-neuroai-language)'
+    text: 'Hiring! Two PhD positions'
 
   - date: "Mar 2026"
     text: "LPC group officially launched at the Max Planck Institute for Psycholinguistics"
